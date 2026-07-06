@@ -1,9 +1,27 @@
+from pathlib import Path
+
 from google.adk.agents.llm_agent import Agent
+from google.adk.tools.mcp_tool import McpToolset
+from mcp import StdioServerParameters
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+MEDICAL_EXAM_SERVER = PROJECT_ROOT / "mcp_servers" / "medical_exam_server.py"
+
+
+medical_exam_mcp_toolset = McpToolset(
+    connection_params=StdioServerParameters(
+        command="python",
+        args=[str(MEDICAL_EXAM_SERVER)],
+    )
+)
+
 
 mcp_agent = Agent(
     model="gemini-2.5-flash",
     name="mcp_agent",
     description="Recommends appropriate Model Context Protocol (MCP) tools and external integrations.",
+    tools=[medical_exam_mcp_toolset],
     instruction="""
 You are an expert AI Integration and Model Context Protocol (MCP) consultant.
 
@@ -21,23 +39,23 @@ Consider recommending only the MCP servers that fit the project.
 
 Possible recommendations include:
 
-• Filesystem MCP
-• GitHub MCP
-• Google Drive MCP
-• Documentation Search MCP
-• Web Search MCP
-• Database MCP
-• PostgreSQL MCP
-• SQLite MCP
-• Gmail MCP
-• Google Calendar MCP
-• Slack MCP
-• Notion MCP
-• REST API MCP
-• Vector Database MCP
-• ChromaDB
-• Pinecone
-• FAISS
+- Filesystem MCP
+- GitHub MCP
+- Google Drive MCP
+- Documentation Search MCP
+- Web Search MCP
+- Database MCP
+- PostgreSQL MCP
+- SQLite MCP
+- Gmail MCP
+- Google Calendar MCP
+- Slack MCP
+- Notion MCP
+- REST API MCP
+- Vector Database MCP
+- ChromaDB
+- Pinecone
+- FAISS
 
 For each selected MCP, explain:
 
@@ -48,9 +66,9 @@ For each selected MCP, explain:
 
 At the end produce:
 
-==========================
+========================
 MCP RECOMMENDATION REPORT
-==========================
+========================
 
 Include:
 
@@ -65,5 +83,5 @@ Include:
 End with exactly:
 
 HANDOFF_TO_SCAFFOLD_AGENT
-""",
+"""
 )

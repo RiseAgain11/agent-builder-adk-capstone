@@ -1,0 +1,28 @@
+{
+  "NEET": {
+    "country": "India",
+    "purpose": "Medical entrance examination for undergraduate medical admission.",
+    "official_sources": [
+      "https://nta.ac.in/",
+      "https://neet.nta.nic.in/"
+    ],
+    "architecture_use": "Use web/search MCP for latest exam dates, syllabus, admit card notices, and official announcements."
+  },
+  "MCAT": {
+    "country": "United States and Canada",
+    "purpose": "Medical College Admission Test for medical school admissions.",
+    "official_sources": [
+      "https://students-residents.aamc.org/register-mcat-exam/register-mcat-exam",
+      "https://students-residents.aamc.org/mcat"
+    ],
+    "architecture_use": "Use documentation/search MCP and calendar planning tools for preparation schedules."
+  },
+  "UCAT": {
+    "country": "United Kingdom, Australia, New Zealand",
+    "purpose": "Admissions test used by many medical and dental schools.",
+    "official_sources": [
+      "https://www.ucat.ac.uk/"
+    ],
+    "architecture_use": "Use official documentation lookup and study planning tools."
+  }
+}

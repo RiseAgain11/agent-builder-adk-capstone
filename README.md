@@ -1,254 +1,210 @@
-# Agent Builder Agent (Google ADK + MCP + Hybrid LLM)
+# Agent Builder Agent
+## Google ADK Multi-Agent AI Solution Architect
 
-## Overview
+A multi-agent AI application built with **Google Agent Development Kit (ADK)** and **Gemini 2.5 Flash** that interviews users, recommends AI system architectures, performs security analysis, suggests Model Context Protocol (MCP) integrations, and generates production-ready project scaffolds.
 
-Agent Builder Agent is an intelligent multi-agent AI system built using Google's Agent Development Kit (ADK) and Gemini 2.5 Flash.
-
-Instead of simply answering questions, the system interviews users about their AI project and produces a complete AI solution architecture including technology recommendations, security guidance, Model Context Protocol (MCP) integration,
- deployment recommendations, and project scaffolding.
-
-This project was developed as a submission for the Kaggle **5-Day AI Agents Intensive Capstone Project**.
+This capstone also demonstrates **real FastMCP integration** using Google's ADK `McpToolset`.
 
 ---
 
 # Features
 
-- Multi-Agent AI architecture using Google ADK
-- Interactive requirements interview
-- Intelligent architecture recommendation
-- Model Context Protocol (MCP) recommendation
+- Multi-agent AI architecture
+- Interactive project interview
+- AI architecture recommendations
 - Security analysis
-- Project scaffold recommendation
-- Deployment recommendation
-- Technology stack recommendation
-- Retrieval-Augmented Generation (RAG) planning
-- Memory recommendation
-- Google Gemini 2.5 Flash integration
-- Beginner-friendly AI project guidance
+- Model Context Protocol (MCP) recommendations
+- Real FastMCP server integration
+- Project scaffold generation
+- Deployment recommendations
 
 ---
 
-# Why this Project?
-
-Modern AI applications require many architectural decisions before development begins.
-
-Developers often struggle with questions like:
-
-- Should I build a single agent or multiple agents?
-- Do I need RAG?
-- Should I use MCP?
-- Which vector database should I choose?
-- How should I secure the application?
-- Which deployment platform is appropriate?
-
-This Agent Builder acts as an **AI Solution Architect**, interviewing the user and recommending production-ready solutions based on project requirements.
-
----
-
-# Multi-Agent Architecture
+# Multi-Agent Workflow
 
 ```
-                        Agent Builder Root
-                                │
-                                │
-                       Interview Agent
-                                │
-                                ▼
-                    Collect Project Requirements
-                                │
-                                ▼
-                    Architecture Recommendation
-                                │
-                                ▼
-                      Security Analysis Agent
-                                │
-                                ▼
-                    MCP Recommendation Agent
-                                │
-                                ▼
-                     Scaffold Generator Agent
-                                │
-                                ▼
-                  Final AI Architecture Report
+User
+
+↓
+
+Interview Agent
+
+↓
+
+Architecture Agent
+
+↓
+
+Security Agent
+
+↓
+
+MCP Agent
+
+↓
+
+Scaffold Agent
+
+↓
+
+Final AI Solution Report
 ```
 
 ---
 
-# Intelligent Recommendations
+# Agents
 
-After interviewing the user, the system generates recommendations for:
+## Interview Agent
 
-- AI Architecture
-- Multi-agent workflow
-- Technology stack
-- Retrieval-Augmented Generation (RAG)
-- Memory strategy
-- Security best practices
-- Model Context Protocol (MCP)
-- Deployment architecture
-- Project scaffold
-- Future improvements
+Collects project requirements.
 
----
+Examples:
 
-# Model Context Protocol (MCP)
-
-One of the key features of this project is a dedicated MCP Advisor Agent.
-
-Instead of merely mentioning MCP, the system evaluates whether MCP is appropriate for the project and recommends possible integrations with external tools and services such as:
-
-- Google Calendar
-- Gmail
-- Google Drive
-- Learning Management Systems (LMS)
-- Vector Databases
-- Future enterprise APIs
-
-This demonstrates how MCP can extend AI agents beyond simple chat capabilities.
+- Project idea
+- Users
+- Budget
+- Deployment
+- Scale
 
 ---
 
-# Security Analysis
+## Architecture Agent
 
-A dedicated Security Agent evaluates the proposed AI system and provides recommendations covering:
+Recommends:
+
+- Single vs Multi-Agent
+- LLM
+- Memory
+- RAG
+- Databases
+- APIs
+- Backend
+- Frontend
+- Deployment
+
+---
+
+## Security Agent
+
+Evaluates:
 
 - Authentication
 - Authorization
-- Sensitive data protection
-- Prompt Injection mitigation
-- API security
+- Prompt Injection
 - Encryption
-- Privacy considerations
-- Responsible AI practices
-- Deployment security
+- Privacy
+- Responsible AI
 
 ---
 
-# Project Scaffold Recommendation
+## MCP Agent
 
-The Scaffold Agent recommends a production-ready project structure including:
+Recommends suitable Model Context Protocol (MCP) integrations.
 
-- app/
-- agents/
-- tools/
-- prompts/
-- config/
-- memory/
-- rag/
-- tests/
-- docs/
-
-along with recommended supporting files such as:
-
-- requirements.txt
-- Dockerfile
-- README.md
-- .env.example
+This project also includes a **real FastMCP server**.
 
 ---
 
-# Recommended Technology Stack
+## Scaffold Agent
 
-Typical recommendations include:
-
-- **LLM:** Google Gemini 2.5 Flash
-- **Framework:** Google Agent Development Kit (ADK)
-- **Backend:** FastAPI
-- **Frontend:** React
-- **Vector Database:** Pinecone or ChromaDB
-- **Relational Database:** PostgreSQL
-- **Memory:** Long-term conversation memory
-- **Cloud Platform:** Google Cloud Platform
-- **Containerization:** Docker
+Generates a production-ready project structure.
 
 ---
 
-# Example Workflow
+# Real MCP Integration
 
-User describes an AI project
+The project demonstrates a working FastMCP server.
 
-↓
+Server:
 
-Interview Agent collects requirements
+```
+mcp_servers/medical_exam_server.py
+```
 
-↓
+Exposed MCP Tool:
 
-Architecture Agent recommends system design
+```python
+get_exam_info(exam_name)
+```
 
-↓
+Example:
 
-Security Agent evaluates risks
+```
+get_exam_info("MCAT")
+```
 
-↓
+Returns:
 
-MCP Agent recommends external integrations
+- Exam name
+- Country
+- Purpose
+- Official information sources
 
-↓
+The MCP Agent accesses the tool through Google's ADK `McpToolset`.
 
-Scaffold Agent recommends project structure
+During testing, the application successfully:
 
-↓
+- transferred control to `mcp_agent`
+- invoked `get_exam_info("MCAT")`
+- received structured data from the MCP server
+- incorporated the returned information into the final AI response
 
-Final AI Architecture Report
+This demonstrates **real MCP tool execution** rather than prompt-only simulation.
 
 ---
 
-# Example Use Cases
+# Technologies
 
-The Agent Builder can assist with designing:
+- Python
+- Google ADK
+- Gemini 2.5 Flash
+- FastMCP
+- Google ADK McpToolset
+- Git
+- GitHub
+- Ubuntu Linux
 
-- Educational AI assistants
-- Healthcare agents
-- Enterprise copilots
-- Research assistants
-- Customer support systems
-- Personal productivity assistants
-- AI tutoring systems
-- Medical entrance exam assistants
-- Business automation agents
+---
+
+# Project Structure
+
+```
+agent_builder_adk/
+
+├── agent.py
+├── agents/
+│   ├── interview_agent.py
+│   ├── architecture_agent.py
+│   ├── security_agent.py
+│   ├── mcp_agent.py
+│   └── scaffold_agent.py
+│
+├── mcp_servers/
+│   └── medical_exam_server.py
+│
+├── data/
+├── README.md
+└── KAGGLE_WRITEUP.md
+```
 
 ---
 
 # Future Improvements
 
-Planned future enhancements include:
-
-- Automatic project code generation
-- README generation
-- Docker Compose generation
-- Kubernetes deployment templates
-- Real MCP server integrations
-- Vector database integration
-- Long-term persistent memory
-- Automatic API generation
-- GitHub repository scaffolding
-- One-click deployment
+- Google Drive MCP
+- GitHub MCP
+- Gmail MCP
+- Slack MCP
+- Database MCP
+- Cloud deployment
+- Automatic code generation
+- Long-term memory
+- Multi-user support
 
 ---
 
-# Technologies Used
+# Capstone
 
-- Python 3.11
-- Google Agent Development Kit (ADK)
-- Google Gemini 2.5 Flash
-- FastAPI
-- MCP Concepts
-- RAG Concepts
-- Git
-- GitHub
+Created as part of the **Kaggle 5-Day AI Agents Intensive Capstone Project** using Google's Agent Development Kit (ADK).
 
----
-
-# Repository
-
-GitHub Repository:
-
-https://github.com/RiseAgain11/agent-builder-adk-capstone
-
----
-
-# Author
-
-**Monica Das**
-
-Developed as part of the **Kaggle 5-Day AI Agents Intensive Capstone Project (2026)** using Google's Agent Development Kit.
+Author: **Monica Das**
