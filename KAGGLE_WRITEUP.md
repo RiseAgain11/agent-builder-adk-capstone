@@ -8,54 +8,54 @@
 
 # Problem Statement
 
-Designing an AI agent is no longer as simple as selecting a Large Language Model (LLM). Developers must decide whether to use Retrieval-Augmented Generation (RAG), Model Context Protocol (MCP), memory, multiple specialized agents, external tools,
- databases, cloud deployment, and security mechanisms.
+Building modern AI applications requires much more than selecting a Large Language Model (LLM). Developers must make architectural decisions regarding multi-agent design, Retrieval-Augmented Generation (RAG), Model Context Protocol (MCP), memory, external tools, security, deployment, and project organization.
 
-Many beginners struggle to make these architectural decisions.
+These decisions are often difficult for beginners and even experienced developers because they involve many interdependent technologies.
 
-The goal of this project is to build an intelligent AI consultant that interviews users, understands their requirements, and recommends a complete production-ready AI architecture.
+The goal of this project is to build an intelligent multi-agent AI Solution Architect that interviews users, understands their project requirements, recommends a production-ready AI architecture, and demonstrates real Model Context Protocol (MCP) integration through a custom FastMCP server.
 
 ---
 
 # Project Overview
 
-Agent Builder Agent is a multi-agent AI system developed using Google's Agent Development Kit (ADK).
+Agent Builder Agent is a multi-agent AI application developed using Google's Agent Development Kit (ADK) and Gemini 2.5 Flash.
 
-Rather than simply answering questions, the system behaves like an AI Solutions Architect.
+Rather than functioning as a simple chatbot, the system behaves like an AI Solutions Architect.
 
-It interviews the user, analyzes project requirements, evaluates technical trade-offs, and generates recommendations covering architecture, security, MCP integration, deployment strategy, and starter project scaffolding.
+It interviews the user, analyzes project requirements, evaluates technical trade-offs, recommends architecture decisions, performs security analysis, suggests Model Context Protocol (MCP) integrations, recommends deployment strategies, and generates an appropriate starter project structure.
+
+The project also demonstrates a working FastMCP server integrated with Google ADK through the MCP Agent.
 
 ---
 
 # Why I Chose This Project
 
-I wanted to build more than a chatbot. My goal was to create an AI Solution Architect capable of interviewing users, understanding project requirements, and recommending an appropriate AI system design.
+I wanted to build something more practical than a conversational chatbot.
 
-Throughout this capstone I progressively enhanced the system from a simple interview agent into a coordinated multi-agent application using Google's Agent Development Kit (ADK). Each specialized agent contributes expertise in architecture,
- security, Model Context Protocol (MCP), and project scaffolding before producing a comprehensive solution report.
+My objective was to create an intelligent AI Solution Architect capable of interviewing developers, understanding project requirements, coordinating multiple specialized agents, and producing production-ready recommendations.
 
-This project also strengthened my practical skills in Ubuntu Linux, Git, GitHub, prompt engineering, multi-agent orchestration, and AI application design.
----
+Throughout this capstone I progressively evolved the system from a single interview agent into a coordinated multi-agent application using Google's Agent Development Kit (ADK).
 
-# Multi-Agent Design
+This project also strengthened my practical skills in:
 
-The project consists of several specialized AI agents coordinated by a Root Agent.
-
-These include:
-
-- Interview Agent
-- Architecture Agent
-- Security Agent
-- MCP Advisor Agent
-- Scaffold Agent
-
-Each agent focuses on a specific responsibility before handing control to the next agent.
+- Ubuntu Linux
+- Python
+- Google ADK
+- FastMCP
+- Git and GitHub
+- Multi-agent orchestration
+- Prompt engineering
+- AI system architecture
 
 ---
 
-# Workflow
+# Multi-Agent Architecture
 
-User Idea
+The application consists of a Root Agent that coordinates several specialized agents.
+
+The workflow is:
+
+User
 
 ↓
 
@@ -71,55 +71,55 @@ Security Agent
 
 ↓
 
-MCP Advisor Agent
+MCP Agent
 
 ↓
 
-Scaffold Generator Agent
+Scaffold Agent
 
 ↓
 
-Final Architecture Report
+Final AI Solution Report
+
+Each agent focuses on a single responsibility before handing control to the next specialized agent.
 
 ---
 
-# Major Features
+# Agent Responsibilities
 
-- Interactive project interview
-- Intelligent architecture recommendations
-- Single-agent vs multi-agent analysis
-- RAG recommendation
-- Memory recommendation
-- Model Context Protocol (MCP) planning
-- Security analysis
-- Deployment recommendation
-- Technology stack recommendation
-- Project scaffold generation
-- Final architecture report
+### Interview Agent
 
----
+Collects project requirements by interviewing the user.
 
-# Model Context Protocol (MCP)
+Examples include:
 
-A dedicated MCP Advisor Agent evaluates whether external integrations are appropriate for the proposed AI system.
-
-Possible recommendations include:
-
-- Google Calendar
-- Google Drive
-- Gmail
-- Learning Management Systems
-- REST APIs
-- Vector Databases
-- Enterprise integrations
-
-Rather than recommending MCP for every project, the system explains when MCP adds value and when it is unnecessary.
+- Project purpose
+- Target users
+- Deployment preference
+- Budget
+- Expected scale
+- Technology preferences
 
 ---
 
-# Security
+### Architecture Agent
 
-The Security Agent evaluates:
+Recommends:
+
+- Single-agent vs multi-agent architecture
+- LLM selection
+- Memory strategy
+- Retrieval-Augmented Generation (RAG)
+- Vector databases
+- Backend technologies
+- Frontend technologies
+- Deployment strategy
+
+---
+
+### Security Agent
+
+Evaluates:
 
 - Authentication
 - Authorization
@@ -130,13 +130,40 @@ The Security Agent evaluates:
 - Responsible AI
 - Sensitive information handling
 
-The agent also assigns priorities and recommends mitigation strategies.
+The Security Agent also prioritizes risks and recommends mitigation strategies.
 
 ---
 
-# Project Scaffold
+### MCP Agent
 
-The Scaffold Agent recommends a production-ready project structure including:
+The MCP Agent recommends Model Context Protocol (MCP) integrations based on the user's project requirements.
+
+In addition, this capstone demonstrates a real FastMCP server integration.
+
+A custom FastMCP server (`medical_exam_server.py`) exposes the tool:
+
+```
+get_exam_info(exam_name)
+```
+
+The MCP Agent connects to this server through Google's ADK `McpToolset`.
+
+When appropriate, the agent invokes the MCP tool and receives structured data including:
+
+- Exam name
+- Country
+- Purpose
+- Official information sources
+
+The returned structured information is incorporated into the agent's final response.
+
+This demonstrates real MCP tool execution rather than prompt-only simulation.
+
+---
+
+### Scaffold Agent
+
+Recommends a production-ready project structure including:
 
 - app/
 - agents/
@@ -157,13 +184,89 @@ It also recommends:
 
 ---
 
+# Workflow
+
+The overall workflow is:
+
+User Idea
+
+↓
+
+Interview Agent
+
+↓
+
+Architecture Agent
+
+↓
+
+Security Agent
+
+↓
+
+MCP Agent
+
+↓
+
+Scaffold Agent
+
+↓
+
+Final AI Solution Report
+
+---
+
+# Major Features
+
+- Interactive project interview
+- Intelligent architecture recommendation
+- Multi-agent orchestration
+- Single-agent vs multi-agent analysis
+- Retrieval-Augmented Generation (RAG) planning
+- Memory recommendation
+- Security analysis
+- Model Context Protocol (MCP) planning
+- Real FastMCP integration
+- Project scaffold generation
+- Deployment recommendation
+- Technology stack recommendation
+- Final AI architecture report
+
+---
+
 # Technologies Used
 
 - Python
 - Google Agent Development Kit (ADK)
 - Gemini 2.5 Flash
+- FastMCP
+- Google ADK McpToolset
 - Git
 - GitHub
+- Ubuntu Linux
+
+---
+
+# Demonstrated MCP Integration
+
+The project includes a working FastMCP server.
+
+The server provides a custom tool:
+
+```
+get_exam_info(exam_name)
+```
+
+The MCP Agent connects to the server using Google's ADK `McpToolset`.
+
+A demonstration included:
+
+- Requesting information about MCAT.
+- The MCP Agent invoking the FastMCP server.
+- The server returning structured information.
+- The agent presenting the returned information and official source link to the user.
+
+This confirms successful MCP tool execution within the Google ADK multi-agent workflow.
 
 ---
 
@@ -177,6 +280,8 @@ Through this capstone I learned:
 - Prompt engineering
 - AI system architecture
 - Model Context Protocol (MCP)
+- FastMCP server development
+- Google ADK MCP integration
 - Retrieval-Augmented Generation (RAG)
 - Security considerations for AI applications
 - Git and GitHub workflows
@@ -186,12 +291,17 @@ Through this capstone I learned:
 
 # Future Improvements
 
-Future versions of this project will include:
+Future versions of this project may include:
 
 - Automatic project code generation
 - Automatic README generation
-- Persistent memory
-- Live MCP server integrations
+- Persistent long-term memory
+- Integration with additional production MCP servers
+  - Google Drive
+  - Gmail
+  - GitHub
+  - Slack
+  - Databases
 - Vector database integration
 - One-click cloud deployment
 - Automatic Docker generation
@@ -201,11 +311,13 @@ Future versions of this project will include:
 
 # Conclusion
 
-This project demonstrates how specialized AI agents can collaborate to design complete AI solutions.
+This project demonstrates how multiple specialized AI agents can collaborate to design production-ready AI systems.
 
-Instead of functioning as a single chatbot, the Agent Builder coordinates multiple expert agents to provide architecture guidance, security recommendations, MCP planning, deployment advice, and project scaffolding.
+Instead of functioning as a single chatbot, Agent Builder Agent coordinates multiple expert agents to perform project interviews, architecture recommendation, security analysis, Model Context Protocol (MCP) planning, deployment advice, project scaffolding, and real MCP tool integration.
 
-The result is an intelligent AI Solution Architect that helps developers transform an initial idea into a production-oriented design.
+The implementation also demonstrates successful integration of Google's Agent Development Kit (ADK) with a custom FastMCP server, enabling actual tool execution within the multi-agent workflow.
+
+The result is an intelligent AI Solution Architect that helps developers transform an initial idea into a well-structured, production-oriented AI system.
 
 ---
 
